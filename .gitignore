@@ -20,3 +20,6 @@
 /.vs/ticket-history-service/v16/TestStore/0
 /src/Presentation.API/.vs/Presentation.API/v16/TestStore/0
 /src/Presentation.API/.vs/Presentation.API/DesignTimeBuild
+/.vs/ticket-history-service/DesignTimeBuild
+/src/DAL.RabbitMQ.Consumers/bin/Debug/netstandard2.0
+/src/DAL.RabbitMQ.Consumers/obj/Debug/netstandard2.0

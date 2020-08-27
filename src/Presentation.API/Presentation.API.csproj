@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLL.Services\BLL.Services.csproj" />
+    <ProjectReference Include="..\DAL.RabbitMQ.Consumers\DAL.RabbitMQ.Consumers.csproj" />
     <ProjectReference Include="..\DAL.Repositories\DAL.Repositories.csproj" />
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
   </ItemGroup>

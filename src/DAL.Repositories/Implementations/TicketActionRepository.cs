@@ -5,12 +5,12 @@
     using MongoDB.Driver;
     using System.Collections.Generic;
 
-    public class TicketRepository : ITicketActionRepository
+    public class TicketActionRepository : ITicketActionRepository
     {
         private readonly string COLLECTIONNAME = "TicketActions";
         private readonly IMongoCollection<TicketAction> _collection;
 
-        public TicketRepository(IMongoDatabase database)
+        public TicketActionRepository(IMongoDatabase database)
         {
             _collection = database.GetCollection<TicketAction>(COLLECTIONNAME);
         }

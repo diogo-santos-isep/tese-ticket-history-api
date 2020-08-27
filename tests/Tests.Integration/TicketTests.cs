@@ -19,7 +19,7 @@ namespace Tests.Integration
 
         public TicketActionTests()
         {
-            var repo = new TicketRepository(DatabaseConnection.Current.Database);
+            var repo = new TicketActionRepository(DatabaseConnection.Current.Database);
             this._service = new TicketActionService(repo);
         }
 
