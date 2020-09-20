@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BLL.Services\BLL.Services.csproj" />
     <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\Models.Domain\Models.Domain.csproj" />
   </ItemGroup>

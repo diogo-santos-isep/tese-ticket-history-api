@@ -1,26 +1,30 @@
-﻿namespace DAL.RabbitMQ.Consumers.Implementations
+﻿namespace BLL.RabbitMQ.Consumers.Implementations
 {
-    using DAL.RabbitMQ.Consumers.Bodies;
-    using DAL.RabbitMQ.Consumers.Bodies;
-    using DAL.RabbitMQ.Consumers.Extensions;
-    using DAL.RabbitMQ.Consumers.Helpers;
+    using BLL.RabbitMQ.Consumers.Bodies;
+    using BLL.RabbitMQ.Consumers.Extensions;
+    using BLL.RabbitMQ.Consumers.Helpers;
+    using BLL.Services.Implementations;
+    using BLL.Services.Interfaces;
+    using DAL.Repositories.Implementations;
     using global::RabbitMQ.Client;
     using global::RabbitMQ.Client.Events;
+    using Infrastructure.CrossCutting;
     using Infrastructure.CrossCutting.Settings.Implementations;
     using Newtonsoft.Json;
     using System;
-    using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class TicketStateChangedConsumer
+    public class TicketCreatedEventConsumer
     {
-        private readonly string QUEUENAME = "TicketStateChangedQueue";
+        private readonly string QUEUENAME = "TicketCreatedQueue";
         private IConnectionFactory factory;
+        private MongoDBConnection dbConnectionSettings;
 
-        public TicketStateChangedConsumer(RabbitMQSettings settings)
+        public TicketCreatedEventConsumer(RabbitMQSettings settings, MongoDBConnection dbConnectionSettings)
         {
             this.factory = settings.ToFactory();
+            this.dbConnectionSettings = dbConnectionSettings;
         }
 
         public async Task Start()
@@ -41,8 +45,11 @@
                     try
                     {
                         string json = Encoding.UTF8.GetString(ea.Body);
-                        var message = JsonConvert.DeserializeObject<TicketStateChangedBody>(json);
-                        Console.WriteLine(Environment.NewLine + $"[TicketStateChanged Message Received]");
+                        var message = JsonConvert.DeserializeObject<TicketCreatedEventBody>(json);
+                        Console.WriteLine(Environment.NewLine + $"[TicketCreated Message Received]");
+
+                        var service = new TicketActionService(new TicketActionRepository(dbConnectionSettings.Connect()));
+                        service.Create(message.BuildTicketAction());
 
                         channel.BasicAck(ea.DeliveryTag, false);
                     }
@@ -55,6 +62,7 @@
                 channel.BasicConsume(queue: QUEUENAME,
                      autoAck: false,
                      consumer: consumer);
+                Console.WriteLine("TicketCreated Consumer Started");
             }
             catch (Exception ex)
             {
@@ -64,8 +72,8 @@
         private static void Consumer_Received(
    object sender, BasicDeliverEventArgs e)
         {
-            var message = Converter.FromByteArray<TicketStateChangedBody>(e.Body);
-            Console.WriteLine(Environment.NewLine + $"[TicketStateChanged Message Received]");
+            var message = Converter.FromByteArray<TicketCreatedEventBody>(e.Body);
+            Console.WriteLine(Environment.NewLine + $"[TicketCreated Message Received]");
         }
     }
 }

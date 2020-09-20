@@ -1,10 +1,10 @@
-﻿using Infrastructure.CrossCutting;
-using Infrastructure.CrossCutting.Settings.Implementations;
-using MongoDB.Driver;
-using System.Runtime.CompilerServices;
-
-namespace Tests.Integration.Helpers
+﻿namespace Tests.Integration.Helpers
 {
+    using Infrastructure.CrossCutting;
+    using Infrastructure.CrossCutting.Settings.Implementations;
+    using MongoDB.Driver;
+    using System.Runtime.CompilerServices;
+
     public class DatabaseConnection
     {
         public static DatabaseConnection Current { get; private set; }

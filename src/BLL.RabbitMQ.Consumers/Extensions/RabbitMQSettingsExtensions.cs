@@ -1,4 +1,4 @@
-﻿namespace DAL.RabbitMQ.Consumers.Extensions
+﻿namespace BLL.RabbitMQ.Consumers.Extensions
 {
     using global::RabbitMQ.Client;
     using Infrastructure.CrossCutting.Settings.Implementations;

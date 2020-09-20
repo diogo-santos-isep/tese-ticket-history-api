@@ -2,7 +2,7 @@
 
 namespace Presentation.API
 {
-    using DAL.RabbitMQ.Consumers.Implementations;
+    using BLL.RabbitMQ.Consumers.Implementations;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
@@ -48,8 +48,10 @@ namespace Presentation.API
             {
                 endpoints.MapControllers();
             });
-            new DAL.RabbitMQ.Consumers.Startup(
-                app.ApplicationServices.GetService<TicketStateChangedConsumer>()
+            new BLL.RabbitMQ.Consumers.Startup(
+                app.ApplicationServices.GetService<TicketStateChangedEventConsumer>(),
+                app.ApplicationServices.GetService<TicketCreatedEventConsumer>(),
+                app.ApplicationServices.GetService<TicketReassignedEventConsumer>()
                 ).StartConsumers();
         }
     }

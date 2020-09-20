@@ -1,6 +1,7 @@
 ﻿namespace Presentation.API.Components
 {
-    using DAL.RabbitMQ.Consumers.Implementations;
+    using BLL.RabbitMQ.Consumers.Implementations;
+    using BLL.Services.Interfaces;
     using Infrastructure.CrossCutting.Settings.Implementations;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Options;
@@ -9,7 +10,11 @@
     {
         public static IServiceCollection AddRabbitMQConsumers(this IServiceCollection services)
         {
-            services.AddSingleton(p => new TicketStateChangedConsumer(p.GetService<IOptions<RabbitMQSettings>>().Value));
+            var rabbitSettings = services.BuildServiceProvider().GetRequiredService<IOptions<RabbitMQSettings>>().Value;
+            var dbSettings = services.BuildServiceProvider().GetRequiredService<IOptions<MongoDBConnection>>().Value;
+            services.AddSingleton(p => new TicketStateChangedEventConsumer(rabbitSettings,dbSettings));
+            services.AddSingleton(p => new TicketReassignedEventConsumer(rabbitSettings, dbSettings));
+            services.AddSingleton(p => new TicketCreatedEventConsumer(rabbitSettings, dbSettings));
 
             return services;
         }

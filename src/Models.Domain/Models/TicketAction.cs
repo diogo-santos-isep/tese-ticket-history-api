@@ -17,7 +17,6 @@
         [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
         public DateTime Date { get; set; }
         public string ActionDescription { get; set; }
-        [BsonRepresentation(BsonType.ObjectId)]
         public string UserId { get; set; }
         public string UserName { get; set; }
 

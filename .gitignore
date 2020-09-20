@@ -23,3 +23,6 @@
 /.vs/ticket-history-service/DesignTimeBuild
 /src/DAL.RabbitMQ.Consumers/bin/Debug/netstandard2.0
 /src/DAL.RabbitMQ.Consumers/obj/Debug/netstandard2.0
+/src/BLL.RabbitMQ.Consumers/bin/Debug/netstandard2.0
+/src/BLL.RabbitMQ.Consumers/obj
+/src/BLL.RabbitMQ.Consumers/Bodies/RabbitMQMessageBody.cs

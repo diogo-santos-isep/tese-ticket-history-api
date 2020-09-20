@@ -1,5 +1,7 @@
 ﻿using BLL.Services.Interfaces;
+using DAL.Repositories.Implementations;
 using DAL.Repositories.Interfaces;
+using Infrastructure.CrossCutting.Settings.Implementations;
 using Models.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ namespace BLL.Services.Implementations
         {
             this._repo = _repo;
         }
+
         public TicketAction Create(TicketAction model)
         {
             return _repo.Create(model);

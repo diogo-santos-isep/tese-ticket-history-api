@@ -1,4 +1,4 @@
-﻿namespace DAL.RabbitMQ.Consumers.Helpers
+﻿namespace BLL.RabbitMQ.Consumers.Helpers
 {
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
