@@ -15,6 +15,7 @@
             services.AddSingleton(p => new TicketStateChangedEventConsumer(rabbitSettings,dbSettings));
             services.AddSingleton(p => new TicketReassignedEventConsumer(rabbitSettings, dbSettings));
             services.AddSingleton(p => new TicketCreatedEventConsumer(rabbitSettings, dbSettings));
+            services.AddSingleton(p => new TicketFieldsUpdatedEventConsumer(rabbitSettings, dbSettings));
 
             return services;
         }

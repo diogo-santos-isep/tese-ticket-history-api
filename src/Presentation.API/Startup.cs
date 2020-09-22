@@ -51,7 +51,8 @@ namespace Presentation.API
             new BLL.RabbitMQ.Consumers.Startup(
                 app.ApplicationServices.GetService<TicketStateChangedEventConsumer>(),
                 app.ApplicationServices.GetService<TicketCreatedEventConsumer>(),
-                app.ApplicationServices.GetService<TicketReassignedEventConsumer>()
+                app.ApplicationServices.GetService<TicketReassignedEventConsumer>(),
+                app.ApplicationServices.GetService<TicketFieldsUpdatedEventConsumer>()
                 ).StartConsumers();
         }
     }
