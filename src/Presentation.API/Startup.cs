@@ -9,6 +9,7 @@ namespace Presentation.API
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Options;
+    using Microsoft.IdentityModel.Tokens;
     using Presentation.API.Components;
 
     public class Startup
@@ -27,6 +28,23 @@ namespace Presentation.API
                 .AddRepositories()
                 .AddServices()
                 .AddRabbitMQConsumers();
+
+            services.AddAuthentication("Bearer")
+            .AddJwtBearer("Bearer", options =>
+            {
+                options.Authority = "https://localhost:5000";
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false
+                };
+            });
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
             services.AddControllers();
         }
 
@@ -41,7 +59,9 @@ namespace Presentation.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("MyPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

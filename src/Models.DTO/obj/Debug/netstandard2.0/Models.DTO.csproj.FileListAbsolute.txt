@@ -1,0 +1,14 @@
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Models.DTO.deps.json
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Models.DTO.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Models.DTO.pdb
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Infrastructure.CrossCutting.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Models.Domain.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Models.Domain.pdb
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\bin\Debug\netstandard2.0\Infrastructure.CrossCutting.pdb
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.csprojAssemblyReference.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.AssemblyInfoInputs.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.AssemblyInfo.cs
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.csproj.CoreCompileInputs.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.csproj.CopyComplete
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.DTO\obj\Debug\netstandard2.0\Models.DTO.pdb

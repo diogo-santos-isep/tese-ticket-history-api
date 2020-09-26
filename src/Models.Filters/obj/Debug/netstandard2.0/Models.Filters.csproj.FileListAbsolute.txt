@@ -1,0 +1,9 @@
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\bin\Debug\netstandard2.0\Models.Filters.deps.json
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\bin\Debug\netstandard2.0\Models.Filters.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\bin\Debug\netstandard2.0\Models.Filters.pdb
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.csprojAssemblyReference.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.AssemblyInfoInputs.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.AssemblyInfo.cs
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.csproj.CoreCompileInputs.cache
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.dll
+C:\Projetos\Tese\tese-ticket-history-api\src\Models.Filters\obj\Debug\netstandard2.0\Models.Filters.pdb

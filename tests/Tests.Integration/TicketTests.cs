@@ -6,6 +6,7 @@ namespace Tests.Integration
     using DAL.Repositories.Interfaces;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Models.Domain.Models;
+    using Models.Filters;
     using MongoDB.Bson;
     using System;
     using System.Linq;
@@ -59,6 +60,27 @@ namespace Tests.Integration
             var ticketActions = this._service.Get();
             Assert.IsTrue(ticketActions.Any(t => t.Id == newTicketAction.Id), $"TicketAction1 does not exist");
             Assert.IsTrue(ticketActions.Any(t => t.Id == newTicketAction.Id), $"TicketAction2 does not exist");
+        }
+
+        [TestMethod()]
+        public void Search_Success()
+        {
+            var newTicketAction = this.GenerateNewTicketAction();
+            var newTicketAction2 = this.GenerateNewTicketAction();
+            newTicketAction2.TicketId = newTicketAction.TicketId;
+
+            this._service.Create(newTicketAction);
+            this._service.Create(newTicketAction2);
+
+            var grid = this._service.Search(new TicketActionFilter
+            {
+                Page = 1,
+                PageSize = 50,
+                TicketId = newTicketAction.TicketId
+            });
+            Assert.AreEqual(2, grid.Count, "Number of records is invalid");
+            Assert.IsTrue(grid.List.Any(t => t.Id == newTicketAction.Id), $"Ticket1 does not exist");
+            Assert.IsTrue(grid.List.Any(t => t.Id == newTicketAction2.Id), $"Ticket2 does not exist");
         }
 
         private TicketAction GenerateNewTicketAction()
